@@ -1,6 +1,6 @@
 # MinusForge
 
-A pkg resolver for Octave Packages.
+A server side pkg resolver for Octave Packages.
 
 ## How does pkg install -forge work?
 
@@ -45,7 +45,7 @@ that redirects to the centralized Octave Forge download location
 ## About MinusForge
 
 The idea of MinusForge is to build a small PHP based web service
-that handles both types of pkg queries
+deployed on octave.org that handles both types of pkg queries
 
 - https://octave.sourceforge.io/io/index.html
 - https://packages.octave.org/download/io-2.6.4.tar.gz
