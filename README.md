@@ -42,13 +42,35 @@ that redirects to the centralized Octave Forge download location
 > https://downloads.sourceforge.net/octave/io-2.6.4.tar.gz?download
 
 
+## How does pkg list -forge work?
+
+A second less famous use case that might have to be covered by this project
+is listing Octave Forge packages with their latest version.
+
+From [bug #39479](https://savannah.gnu.org/bugs/?39479)
+it can be conclude that this feature has not been widely embraced by users,
+as listing those 71 packages with their latest version number could take
+up to minutes.
+
+Under the hood,
+first <https://packages.octave.org/list_packages.php> is read to get a list
+of all package names.
+In old Octave pkg versions before 2019 (bug #39479),
+the above mechanism is used to retrieve each package version,
+while since Octave 6 another hacky solution web scrapes the SourceForge
+download directory
+<https://sourceforge.net/projects/octave/files/Octave%20Forge%20Packages/Individual%20Package%20Releases>
+to extract the version numbers.
+
+
 ## About MinusForge
 
 The idea of MinusForge is to build a small PHP based web service
-deployed on octave.org that handles both types of pkg queries
+deployed on octave.org that handles all three types of pkg queries
 
-- https://octave.sourceforge.io/io/index.html
+- https://packages.octave.org/io/index.html
 - https://packages.octave.org/download/io-2.6.4.tar.gz
+- https://packages.octave.org/list_packages.php
 
 and replies in a way that even old Octave pkg versions can resolve
 the whole Octave Packages repository.
