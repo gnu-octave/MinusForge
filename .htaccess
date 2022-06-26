@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteRule ^list_packages.php$ https://octave.sourceforge.io/list_packages.php [R=307,L]
+
+RewriteRule ^download/(.*) index.php?file=$1 [R=307,L]
+
+RewriteRule (.*) https://gnu-octave.github.io/packages/$1 [R=307,L]
