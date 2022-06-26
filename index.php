@@ -6,14 +6,12 @@ $OCTAVE_PACKAGES_URL = "https://gnu-octave.github.io/packages/packages/forge-dow
 if (is_file($CACHE_FILE)) {
   if (time() - filemtime($CACHE_FILE) >= 60 * 60 * 24) {  // 1 day
     unlink($CACHE_FILE);
-    print("Clear cache");
   }
 }
 
 // Recreate cache if necessary.
 if (! is_file($CACHE_FILE)) {
   file_put_contents($CACHE_FILE, fopen($OCTAVE_PACKAGES_URL, 'r'));
-  print("Create cache");
 }
 
 // Find entry in cache file.
