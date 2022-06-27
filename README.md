@@ -65,12 +65,39 @@ to extract the version numbers.
 
 ## About MinusForge
 
-The idea of MinusForge is to build a small PHP based web service
+The idea of MinusForge is to build a small PHP based web service `download.php`
 deployed on octave.org that handles all three types of pkg queries
 
 - https://packages.octave.org/io/index.html
+  - Redirects to **Octave Packages** (same workaround as Octave Forge).
 - https://packages.octave.org/download/io-2.6.4.tar.gz
+  - Real url is resolved by `download.php`.
+  - **Limitation:**
+    [only `.tar.gz`](https://hg.savannah.gnu.org/hgweb/octave/file/670a0d878af1/scripts/pkg/private/get_forge_download.m#l34)
+    can really be installed by `pkg`.
 - https://packages.octave.org/list_packages.php
+  - Still forwarded to Octave Forge:
+    (1) For simplicity
+    (2) Documentation explicitly says
+
+    > The "-forge" option lists packages available at the Octave Forge
+    > repository.
 
 and replies in a way that even old Octave pkg versions can resolve
-the whole Octave Packages repository.
+most of the Octave Packages repository.
+
+### Try it yourself
+
+To demonstrate MinusForge is ready to take over,
+please try yourself the following URLs from octave.space
+and the most updated package in Octave history
+[**statistics-bootstrap**](https://github.com/gnu-octave/packages/pulls?q=is%3Apr+label%3A%22package+release%22+statistics-bootstrap):
+
+- https://packages.octave.space/statistics-bootstrap/index.html
+- https://packages.octave.space/download/statistics-bootstrap-3.9.3.tar.gz
+- https://packages.octave.space/list_packages.php
+
+To observe a limitation, see for example:
+
+- https://packages.octave.space/download/pkg-dev.tar.gz
+  (redirects to a ZIP-file)
