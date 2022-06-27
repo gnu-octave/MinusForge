@@ -2,6 +2,7 @@ RewriteEngine on
 
 RewriteRule ^list_packages.php$ https://octave.sourceforge.io/list_packages.php [R=307,L]
 
-RewriteRule ^download/(.*) /?file=$1 [R=307,L]
+RewriteRule ^download/(.*) /download.php?file=$1 [R=307,L]
 
+RewriteCond %{REQUEST_URI} !download\.php [NC]
 RewriteRule (.*) https://gnu-octave.github.io/packages/$1 [R=307,L]
