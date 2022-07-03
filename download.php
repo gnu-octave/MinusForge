@@ -11,7 +11,7 @@ if (! isset($_GET["file"])) {
 
 // Delete outdated cache file.
 if (is_file($CACHE_FILE)) {
-  if (time() - filemtime($CACHE_FILE) >= 60 * 60 * 24) {  // 1 day
+  if (time() - filemtime($CACHE_FILE) >= 60 * 10) {  // 10 minutes
     unlink($CACHE_FILE);
   }
 }
